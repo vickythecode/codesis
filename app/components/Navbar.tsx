@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="relative h-10 w-10 md:h-16 md:w-16">
             <Image
-              src="/assets/logo.png"
+              src="/assets/logo.webp"
               alt="Lilypads logo"
               fill
               className="object-contain"

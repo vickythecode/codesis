@@ -44,10 +44,15 @@ type LinkGroup = (typeof linkGroups)[number];
 function LinkGroupColumn({ group }: { group: LinkGroup }) {
   return (
     <div className="space-y-2">
-      <h5 className="text-[13px] font-semibold text-[#FFFFFF]/90">{group.title}</h5>
+      <h5 className="text-[13px] font-semibold text-[#FFFFFF]/90">
+        {group.title}
+      </h5>
       <ul className="space-y-1 text-[12px] leading-relaxed text-[#FFFFFF]/60 font-medium">
         {group.links.map((item) => (
-          <li key={item} className="max-w-xs cursor-pointer hover:underline underline-offset-2">
+          <li
+            key={item}
+            className="max-w-xs cursor-pointer hover:underline underline-offset-2"
+          >
             {item}
           </li>
         ))}
@@ -67,15 +72,39 @@ export default function Footer() {
           {/* LEFT: newsletter + CTA + social */}
           <div className="flex-1">
             <form className="mb-10 max-w-104">
-              <div className="flex h-12 items-center rounded-2xl border border-[#FFFFFF]/20 bg-[#202221] px-4">
+              <div
+                className="
+    flex flex-col gap-3
+    sm:flex-row sm:h-12 sm:items-center
+    rounded-2xl border border-[#FFFFFF]/20 bg-[#202221]
+    px-3 sm:px-4
+  "
+              >
                 <input
                   type="email"
                   placeholder="Enter Your Email Here"
-                  className="flex-1 bg-transparent text-sm text-[#B5B5B5] placeholder:text-[#6F6F6F] outline-none"
+                  className="
+      flex-1 w-full
+      bg-transparent
+      text-sm text-[#B5B5B5]
+      placeholder:text-[#6F6F6F]
+      outline-none
+      py-2
+    "
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-9 items-center cursor-pointer hover:bg-[#2F3130]/80 rounded-[10px] bg-[#2F3130] px-5 text-[11px] font-semibold text-white"
+                  className="
+      inline-flex items-center justify-center
+      h-10 sm:h-9
+      w-full sm:w-auto
+      cursor-pointer
+      rounded-[10px]
+      bg-[#2F3130]
+      px-5
+      text-[11px] font-semibold text-white
+      hover:bg-[#2F3130]/80
+    "
                 >
                   Subscribe To Newsletter
                 </button>
@@ -115,12 +144,11 @@ export default function Footer() {
           {/* RIGHT SIDE: logo + Reach Us At + link columns */}
           <div className="flex-1 lg:pl-10">
             <div className="grid grid-cols-2 md:gap-y-10 gap-y-4  gap-x-10 md:grid-cols-3">
-
               {/* ROW 1, COL 1: Logo */}
               <div className="md:col-span-1">
                 <div className="relative h-32 w-32">
                   <Image
-                    src="/assets/logo.png"
+                    src="/assets/logo.webp"
                     alt="Lilypads logo"
                     fill
                     className="object-contain"
