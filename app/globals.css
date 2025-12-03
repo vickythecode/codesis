@@ -1,17 +1,41 @@
 @import "tailwindcss";
 
+/* Root theme variables */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #2F3130;
+
+  /* Brand Colors */
+  --primary: #7D59C3;
+  --dark: #2F3130;
+  --light: #ffffff;
+  --accent: #9E2349;
+
+  /* Font variables */
+  --font-dm-serif: 'DM Serif Display', serif;
+  --font-lexend: 'Lexend', sans-serif;
 }
 
+/*
+  Tailwind theme through @theme inline
+  (ONLY place allowed to define CSS variables for Tailwind)
+*/
 @theme inline {
+  /* Colors (Tailwind will read these as utilities) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-dark: var(--dark);
+  --color-light: var(--light);
+  --color-accent: var(--accent);
+
+  /* Fonts */
+  --font-display: var(--font-dm-serif);
+  --font-body: var(--font-lexend);
 }
 
+/* Dark mode optional */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +43,56 @@
   }
 }
 
+/* Global body */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
+
+
+/* Generic about cell helpers (for positioning the pseudo elements) */
+/* For positioning the gradient lines */
+.about-border-left,
+.about-border-top {
+  position: relative;
+}
+
+/* VERTICAL divider (fades at top & bottom) */
+.about-border-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.5px; /* line thickness */
+  pointer-events: none;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(47, 49, 48, 0) 0%,
+    rgba(47, 49, 48, 0.24) 18%,
+    rgba(47, 49, 48, 0.24) 82%,
+    rgba(47, 49, 48, 0) 100%
+  );
+}
+
+/* HORIZONTAL divider (fades at left & right) */
+.about-border-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1.5px; /* line thickness */
+  pointer-events: none;
+
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 49, 48, 0) 0%,
+    rgba(47, 49, 48, 0.24) 18%,
+    rgba(47, 49, 48, 0.24) 82%,
+    rgba(47, 49, 48, 0) 100%
+  );
+}
+
