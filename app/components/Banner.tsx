@@ -6,6 +6,20 @@ export default function Banner() {
       {/* BASE WHITE BG (just in case images don't load) */}
       <div className="absolute inset-0 -z-30 bg-white" />
 
+      {/* VIOLET TOP OVERLAY */}
+      {/* SMALL TOP VIOLET OVERLAY (just like screenshot) */}
+      <div
+        className="
+    absolute top-0 left-0 right-0
+    h-[140px]
+    -z-25
+    bg-gradient-to-b
+    from-[#6A4DFF]/10
+    to-transparent
+    pointer-events-none
+  "
+      />
+
       {/* PURPLE RIGHT PANEL (UNDER THE DOT TEXTURE) */}
       <div className="absolute inset-y-0 right-0 w-[40%] -z-20 overflow-hidden">
         <Image
@@ -69,17 +83,13 @@ export default function Banner() {
           {/* Stats */}
           <div className="mt-10 grid grid-cols-3 gap-6">
             <div>
-              <p className="font-body text-4xl text-primary font-bold">
-                658+
-              </p>
+              <p className="font-body text-4xl text-primary font-bold">658+</p>
               <p className="mt-1 text-base text-dark font-medium">
                 Properties Registered
               </p>
             </div>
             <div>
-              <p className="font-body text-4xl text-primary font-bold">
-                685+
-              </p>
+              <p className="font-body text-4xl text-primary font-bold">685+</p>
               <p className="mt-1 text-base text-dark font-medium">
                 Deals Cracked
               </p>
